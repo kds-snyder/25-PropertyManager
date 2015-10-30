@@ -1,0 +1,10 @@
+C:\dev\25-PropertyManagerAPI\PropertyManager\PropertyManager.Core\bin\Debug\PropertyManager.Core.dll.config
+C:\dev\25-PropertyManagerAPI\PropertyManager\PropertyManager.Core\bin\Debug\PropertyManager.Core.dll
+C:\dev\25-PropertyManagerAPI\PropertyManager\PropertyManager.Core\bin\Debug\PropertyManager.Core.pdb
+C:\dev\25-PropertyManagerAPI\PropertyManager\PropertyManager.Core\bin\Debug\EntityFramework.dll
+C:\dev\25-PropertyManagerAPI\PropertyManager\PropertyManager.Core\bin\Debug\EntityFramework.SqlServer.dll
+C:\dev\25-PropertyManagerAPI\PropertyManager\PropertyManager.Core\bin\Debug\EntityFramework.xml
+C:\dev\25-PropertyManagerAPI\PropertyManager\PropertyManager.Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\dev\25-PropertyManagerAPI\PropertyManager\PropertyManager.Core\obj\Debug\PropertyManager.Core.csprojResolveAssemblyReference.cache
+C:\dev\25-PropertyManagerAPI\PropertyManager\PropertyManager.Core\obj\Debug\PropertyManager.Core.dll
+C:\dev\25-PropertyManagerAPI\PropertyManager\PropertyManager.Core\obj\Debug\PropertyManager.Core.pdb
