@@ -7,23 +7,28 @@ using System.Web.Http;
 using System.Web.Http.Results;
 using PropertyManager.Controllers;
 using PropertyManager.Core.Domain;
+using AutoMapper;
+using PropertyManager.Tests.Infrastructure;
+using PropertyManager.Core.Constant;
 
 namespace PropertyManager.Tests
 {
     [TestClass]
-    public class PropertyControllerTests
+    public class PropertyControllerTests : BaseTest
     {
         [TestMethod]
-        public void GetPropertiesReturnsPropertie()
+        public void GetPropertiesReturnsProperties()
         {
+
             //Arrange: Instantiate PropertiesController so its methods can be called
-            var propertyController = new PropertiesController();
+            using (var propertyController = new PropertiesController())
+            {
+                //Act: Call the GetProperties method
+                IEnumerable<PropertyModel> properties = propertyController.GetProperties();
 
-            //Act: Call the GetProperties method
-            IEnumerable<PropertyModel> properties = propertyController.GetProperties();
-
-            //Assert: Verify that an array was returned with at least one element
-            Assert.IsTrue(properties.Count() > 0);
+                //Assert: Verify that an array was returned with at least one element
+                Assert.IsTrue(properties.Count() > 0);
+            }               
         }
 
         [TestMethod]
@@ -49,9 +54,8 @@ namespace PropertyManager.Tests
 
         [TestMethod]
         public void PostPropertyCreatesProperty()
-        {           
-
-            //Arrange: Instantiate PropertiesController so its methods can be called
+        {
+           //Arrange: Instantiate PropertiesController so its methods can be called
             var propertyController = new PropertiesController();
 
             //Act: 
@@ -137,7 +141,7 @@ namespace PropertyManager.Tests
         [TestMethod]
         public void DeletePropertyDeletesProperty()
         {
-            
+  
             //Arrange:                       
             // Instantiate PropertiesController so its methods can be called
             // Create a new property to be deleted, and get its property ID
@@ -156,16 +160,41 @@ namespace PropertyManager.Tests
 
             int propertyIdToDelete = contentResult.Content.PropertyId;
 
+            /*
+            // Add a lease corresponding to the property
+            var leaseController = new LeasesController();
+            var lease = new LeaseModel
+            {
+                CreatedDate = new DateTime(2014, 9, 30),
+                PropertyId = propertyIdToDelete,
+                TenantId = 1,
+                StartDate = new DateTime(2015, 1, 30),
+                Rent = 800,
+                LeaseType=Constants.RentPeriod.Monthly
+            };
+            result = leaseController.PostLease(lease);
+            CreatedAtRouteNegotiatedContentResult<LeaseModel> leaseContentResult =
+                (CreatedAtRouteNegotiatedContentResult<LeaseModel>)result;
+
+            int createdLeaseId = leaseContentResult.Content.LeaseId;
+            */
+
             //Act: Call DeleteProperty
             result = propertyController.DeleteProperty(propertyIdToDelete);
 
             //Assert: 
             // Verify that HTTP result is OK
             // Verify that reading deleted property returns result not found
-            Assert.IsInstanceOfType(result, typeof(OkNegotiatedContentResult<Property>));
+            Assert.IsInstanceOfType(result, typeof(OkNegotiatedContentResult<PropertyModel>));
 
             result = propertyController.GetProperty(propertyIdToDelete);
-            Assert.IsInstanceOfType(result, typeof(NotFoundResult));           
+            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
+
+            /*
+            // Verify that the lease created above was deleted
+            result = leaseController.GetLease(createdLeaseId);
+            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
+            */
         }
     }
 }

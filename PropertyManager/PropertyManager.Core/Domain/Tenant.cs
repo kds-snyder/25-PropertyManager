@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PropertyManager.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,14 @@ namespace PropertyManager.Core.Domain
         public string EmailAddress { get; set; }
 
         public virtual ICollection<Lease> Leases { get; set; }
+
+        public void Update(TenantModel modelTenant)
+        {
+            // Copy values from input object to Tenant tenant
+            FirstName = modelTenant.FirstName;
+            LastName = modelTenant.LastName;
+            Telephone = modelTenant.Telephone;
+            EmailAddress = modelTenant.EmailAddress;
+        }
     }
 }

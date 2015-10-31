@@ -40,7 +40,7 @@ namespace PropertyManager
             setUpAutoMapper();
         }
 
-        private static void setUpAutoMapper()
+        public static void setUpAutoMapper()
         {
             Mapper.CreateMap<Property, PropertyModel>();
             Mapper.CreateMap<Tenant, TenantModel>();

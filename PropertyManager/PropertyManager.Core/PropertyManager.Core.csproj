@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constant\Constants.cs" />
     <Compile Include="Domain\Image.cs" />
     <Compile Include="Domain\Lease.cs" />
     <Compile Include="Domain\Property.cs" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PropertyManager.Core.Domain;
-
+using PropertyManager.Core.Constant;
 
 namespace PropertyManager.Core.Models
 {
@@ -20,16 +20,8 @@ namespace PropertyManager.Core.Models
         public DateTime StartDate { get; set; }
         public Nullable<DateTime> EndDate { get; set; }
 
-        public Decimal Rent { get; set; }
+        public Decimal Rent { get; set; }      
 
-        public enum RentPeriod
-        {
-            Daily,
-            Weekly,
-            Monthly,
-            Yearly
-        };
-
-        public RentPeriod LeaseType { get; set; }
+        public Constants.RentPeriod LeaseType { get; set; }
     }
 }

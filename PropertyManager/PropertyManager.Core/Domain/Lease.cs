@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PropertyManager.Core.Constant;
+using PropertyManager.Core.Models;
 
 namespace PropertyManager.Core.Domain
 {
@@ -18,20 +20,23 @@ namespace PropertyManager.Core.Domain
         public DateTime StartDate { get; set; }
         public Nullable<DateTime> EndDate { get; set; }
 
-        public Decimal Rent { get; set; }
-
-        public enum RentPeriod
-        {
-            Daily,
-            Weekly,
-            Monthly,
-            Yearly
-        };
-
-        public  RentPeriod LeaseType { get; set; }
+        public Decimal Rent { get; set; }       
+        public  Constants.RentPeriod LeaseType { get; set; }
         
         public virtual Property Property { get; set; }
 
         public virtual Tenant Tenant { get; set; }
+
+        public void Update(LeaseModel modelLease)
+        {
+            // Copy values from input object to Lease lease
+            CreatedDate = modelLease.CreatedDate;
+            PropertyId = modelLease.PropertyId;
+            TenantId = modelLease.TenantId;
+            StartDate = modelLease.StartDate;
+            EndDate = modelLease.EndDate;
+            Rent = modelLease.Rent;
+            LeaseType = modelLease.LeaseType;           
+        }
     }
 }

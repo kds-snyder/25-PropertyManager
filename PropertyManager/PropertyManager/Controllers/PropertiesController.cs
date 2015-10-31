@@ -21,25 +21,21 @@ namespace PropertyManager.Controllers
 
         // GET: api/Properties
         public IEnumerable<PropertyModel> GetProperties()
-        {
-            //return Mapper.Map<IQueryable<PropertyModel>>(db.Properties);
-            //return Mapper.Map<IDbSet<Property>, IEnumerable<PropertyModel>>(db.Properties);
+        {          
             return Mapper.Map<IEnumerable<PropertyModel>>(db.Properties);
         }
 
         // GET: api/Properties/5
-        [ResponseType(typeof(Property))]
+        [ResponseType(typeof(PropertyModel))]
         public IHttpActionResult GetProperty(int id)
-        {
+        {           
             Property dbProperty = db.Properties.Find(id);
             if (dbProperty == null)
             {
                 return NotFound();
             }
 
-            PropertyModel property = Mapper.Map<PropertyModel>(dbProperty);
-
-            return Ok(property);
+            return Ok(Mapper.Map<PropertyModel>(dbProperty));
         }
 
         // PUT: api/Properties/5
@@ -104,7 +100,7 @@ namespace PropertyManager.Controllers
             Property dbProperty = new Property();
             dbProperty.Update(property);
 
-            // Add the new Account object to the list of Account objects
+            // Add the new Property object to the list of Property objects
             db.Properties.Add(dbProperty);
 
             // Save the changes to the DB
@@ -134,15 +130,29 @@ namespace PropertyManager.Controllers
             {
                 return NotFound();
             }
-
+          
             try
             {
+               /* Remove the leases corresponding to the property
+                var leases = db.Leases.Where(l => l.PropertyId == property.PropertyId);
+                if (leases != null)
+                {
+                    //db.Leases.RemoveRange(leases);
+                    //db.SaveChanges();
+                    foreach (var lease in leases)
+                    {
+                        db.Leases.Remove(lease);
+                        db.SaveChanges();
+                    }                   
+                }
+                */
+                // Remove the property
                 db.Properties.Remove(property);
                 db.SaveChanges();
             }
             catch (Exception)
             {
-
+                //Console.WriteLine("Error deleting: " + e.Message);
                 throw new Exception("Unable to delete the property from the database.");
             }
 
