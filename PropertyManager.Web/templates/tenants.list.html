@@ -1,1 +1,32 @@
-<p>Tenants</p>
+<h3>All Tenants<span>
+	<button class="btn btn-success btn-sm pull-right" ng-click="addTenant()">
+		<span class="glyphicon glyphicon-plus"></span>Add Tenant
+	</button></span>
+</h3>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Telephone Number</th>
+			<th>Email Address</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="tenant in tenants">
+			<td>{{tenant.FirstName}}</td>
+			<td>{{tenant.LastName}}</td>
+			<td>{{tenant.Telephone}}</td>
+			<td>{{tenant.EmailAddress}}</td>
+			<td>
+				<a class="btn btn-info btn-xs" ui-sref="tenants.detail">
+					<i class="fa fa-edit fa-fw"></i>
+				</a>		
+				<a class="btn btn-danger btn-xs" ng-click="deleteTenant()">
+					<i class="fa fa-remove fa-fw"></i>
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>

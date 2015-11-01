@@ -1,6 +1,6 @@
 angular.module('app', ['ui.router', 'ngResource']).config(function($stateProvider, $urlRouterProvider) {
 
-	$urlRouterProvider.otherwise('/properties');
+	$urlRouterProvider.otherwise('/properties/list');
 	$stateProvider
 		.state('properties', { 
 			abstract: true,

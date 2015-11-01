@@ -1,1 +1,37 @@
-<p>Property List</p>
+<h3>All Properties<span>
+	<button class="btn btn-success btn-sm pull-right" ng-click="addProperty()">
+		<span class="glyphicon glyphicon-plus"></span>Add Property
+	</button></span>
+</h3>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Address (1)</th>
+			<th>Address (2)</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Zipcode</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="property in properties">
+			<td>{{property.Name}}</td>
+			<td>{{property.Address1}}</td>
+			<td>{{property.Address2}}</td>
+			<td>{{property.City}}</td>
+			<td>{{property.State}}</td>
+			<td>{{property.Zipcode}}</td>
+			<td>
+				<a class="btn btn-info btn-xs" ui-sref="properties.detail">
+					<i class="fa fa-edit fa-fw"></i>
+				</a>		
+				<a class="btn btn-danger btn-xs" ng-click="deleteProperty()">
+					<i class="fa fa-remove fa-fw"></i>
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+

@@ -9,12 +9,16 @@
 
   <!-- Bootstrap -->
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <!-- Bootswatch file -->
+  <link href="css/bootswatch.sandstone.css" rel="stylesheet">
   <!-- Angular materials -->
   <!--link rel="stylesheet" href="https://gitcdn.xyz/repo/angular/bower-material/master/angular-material.css"-->
   <!-- MetisMenu CSS -->
   <link href="bower_components/metisMenu/dist/metisMenu.css" rel="stylesheet">
   <!-- Startbootstrap Admin-2 CSS -->
   <link href="bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
+  <!-- Startbootstrap Simple Sidebar CSS -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
   <!-- Font awesome -->
   <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
   <!-- Custom CSS file -->
@@ -28,9 +32,8 @@
     <![endif]-->
 </head>
 
-<body ng-controller="SiteController">
+<body ng-controller="SiteController">    
 
-  
   <nav class="navbar navbar-default" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">        
@@ -48,13 +51,14 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
-    
+
+ 
   <div class="container">
     <div ui-view>
 
     </div>
   </div><!-- end container -->
-    
+  
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -70,10 +74,13 @@
   <script src="js/site.ctrl.js" type="text/javascript"></script>
   <script src="js/properties.list.ctrl.js" type="text/javascript"></script>
   <script src="js/properties.detail.ctrl.js" type="text/javascript"></script>
+  <script src="js/propertyService.js" type="text/javascript"></script>
   <script src="js/tenants.list.ctrl.js" type="text/javascript"></script>
   <script src="js/tenants.detail.ctrl.js" type="text/javascript"></script>
+  <script src="js/tenantService.js" type="text/javascript"></script>
   <script src="js/leases.list.ctrl.js" type="text/javascript"></script>
-    <script src="js/leases.detail.ctrl.js" type="text/javascript"></script>
+  <script src="js/leases.detail.ctrl.js" type="text/javascript"></script>
+  <script src="js/leaseService.js" type="text/javascript"></script>
 </body>
 
 </html>
