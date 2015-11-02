@@ -1,0 +1,44 @@
+<div class="container">
+	<h4><i class="fa fa-home"></i> All Properties
+		<button class="btn btn-success btn-sm pull-right" ui-sref="properties.detail">
+			<i class="fa fa-plus"></i>Add Property
+		</button></h4>		
+    
+    <div class="alert alert-info" ng-hide="properties.length">
+            There are no properties - please add one
+    </div>		
+
+<table class="table table-bordered table-condensed table-responsive" ng-show="properties.length">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Address (1)</th>
+			<th>Address (2)</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Zipcode</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="property in properties">
+			<td>{{property.Name}}</td>
+			<td>{{property.Address1}}</td>
+			<td>{{property.Address2}}</td>
+			<td>{{property.City}}</td>
+			<td>{{property.State}}</td>
+			<td>{{property.Zipcode}}</td>
+			<td>
+				<a class="btn btn-info btn-xs" ui-sref="properties.detail({ id: property.PropertyId })">
+					<i class="fa fa-edit fa-fw"></i>
+				</a>		
+				<a class="btn btn-danger btn-xs" ng-click="deleteProperty(property)">
+					<i class="fa fa-remove fa-fw"></i>
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+</div><!-- end container-->
+

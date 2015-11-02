@@ -1,7 +1,18 @@
 
 html, body {
-  background-color: #DDFFEE;
+  background-color: #F0F7E5;
 }
 
+.well {
+  background-color: #D9EBBE;
+}
+
+th {
+    background-color:  #CDE4AB;    
+} 
+
+tr {
+    background-color:  #E4F0D2;    
+} 
 
 

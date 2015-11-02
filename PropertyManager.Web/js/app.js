@@ -8,11 +8,11 @@ angular.module('app', ['ui.router', 'ngResource']).config(function($stateProvide
 			template: '<ui-view/>'})
 		.state('properties.list',{
 			url:'/list',
-			templateUrl: '/templates/properties.list.html',
+			templateUrl: '/templates/properties/properties.list.html',
 			controller: 'PropertiesListController'})
 		.state('properties.detail',{
-			url:'/detail',
-			templateUrl: '/templates/properties.detail.html',
+			url:'/detail/:id',
+			templateUrl: '/templates/properties/properties.detail.html',
 			controller: 'PropertiesDetailController'})				
 		.state('tenants', { 
 			abstract: true,
@@ -20,11 +20,11 @@ angular.module('app', ['ui.router', 'ngResource']).config(function($stateProvide
 			template: '<ui-view/>'})
 		.state('tenants.list', { 
 			url: '/list',
-			 templateUrl: '/templates/tenants.list.html', 
+			 templateUrl: '/templates/tenants/tenants.list.html', 
 			 controller: 'TenantsListController'})
 		.state('tenants.detail', { 
-			url: '/detail',
-			 templateUrl: '/templates/tenants.detail.html', 
+			url: '/detail/:id',
+			 templateUrl: '/templates/tenants/tenants.detail.html', 
 			 controller: 'TenantsDetailController'})
 		.state('leases', { 
 			abstract: true,
@@ -32,10 +32,13 @@ angular.module('app', ['ui.router', 'ngResource']).config(function($stateProvide
 			template: '<ui-view/>'})						
 		.state('leases.list', { 
 			url: '/list', 
-			templateUrl: '/templates/leases.list.html',
+			templateUrl: '/templates/leases/leases.list.html',
 			controller: 'LeasesListController'})
 		.state('leases.detail', { 
-			url: '/detail', 
-			templateUrl: '/templates/leases.detail.html',
+			url: '/detail/:id', 
+			templateUrl: '/templates/leases/leases.detail.html',
 			controller: 'LeasesDetailController'});
 });
+
+angular.module('app').value('apiUrl', 'http://localhost:50672/api/');
+

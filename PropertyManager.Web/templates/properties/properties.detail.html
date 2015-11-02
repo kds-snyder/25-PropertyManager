@@ -1,0 +1,53 @@
+<div class="container">
+    <h4>{{property.PropertyId ? 'Edit' : 'Add'}} Property</h4>
+    <div class="well">
+        <div class="form-group">
+            <label class="control-label" for="propertyName">Property Name</label>
+            <input type="text" class="form-control" id="propertyName" placeholder="Property Name" ng-model="property.Name">
+        </div><!-- end form group -->
+
+        <div class="form-group">
+            <label class="control-label" for="propertyAddress1">Address (1)</label>
+            <input type="text" class="form-control" id="propertyAddress1" placeholder="Address (1)" ng-model="property.Address1">
+        </div><!-- end form group -->
+
+        <div class="form-group">
+            <label class="control-label" for="propertyAddress2">Address (2)</label>
+            <input type="text" class="form-control" id="propertyAddress2" placeholder="Address (2)" ng-model="property.Address2">
+        </div><!-- end form group -->
+
+        <div class="row">
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label class="control-label" for="propertyCity">City</label>
+                    <input type="text" class="form-control" id="propertyCity" placeholder="City" ng-model="property.City">
+                </div><!-- end form group -->
+            </div><!-- end column -->
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label class="control-label" for="propertyState">State</label>
+                    <input type="text" class="form-control" id="propertyState" placeholder="State" ng-model="property.State">
+                </div><!-- end form group -->
+            </div><!-- end column -->
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label class="control-label" for="propertyZipcode">Zipcode</label>
+                    <input type="text" class="form-control" id="propertyZipcode" placeholder="Zipcode" ng-model="property.Zipcode">
+                </div><!-- end form group -->
+            </div><!-- end column -->
+        </div><!-- end row -->
+    
+    <div class="row">
+    	<div class="col-sm-8 col-md-8 col-lg-8">
+    		<button class="btn btn-success btn-sm" ng-click="saveProperty()">
+                <i class="fa fa-save"></i> Save
+        	</button>
+        </div><!-- end column -->
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <button class="btn btn-danger btn-sm pull-right" ui-sref="properties.list">
+                <i class="fa fa-remove fa-fw"></i> Cancel        	
+        	</button>
+        </div><!-- end column -->
+    </div><!-- end row -->
+    </div><!-- end well -->
+</div> <!-- end container -->
