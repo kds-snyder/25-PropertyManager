@@ -75,16 +75,23 @@
                         <label class="control-label" for="leaseRent">Rent</label>
                         <div class="input-group">
                             <span class="input-group-addon">$</span>
+<<<<<<< HEAD
                             <input type="number" class="form-control" id="leaseRent" name="leaseRent"
+=======
+                            <input type="text" class="form-control" id="leaseRent" name="leaseRent"
+>>>>>>> 82fd0c76c4b43da588853083fbc85e7780ab4f29
                                 placeholder="Rent" ng-model="lease.Rent" required>
                             <div role="alert" 
                                 ng-show="leaseForm.$dirty && leaseForm.leaseRent.$error.required">
                                 <span class="error">Rent cannot be blank</span>
                             </div><!-- end alert -->
+<<<<<<< HEAD
                             <div role="alert" 
                                 ng-show="leaseForm.leaseRent.$dirty && leaseForm.leaseRent.$error.number">
                                 <span class="error">Rent must be a number</span>
                             </div><!-- end alert -->
+=======
+>>>>>>> 82fd0c76c4b43da588853083fbc85e7780ab4f29
                         </div><!-- End input-group-->            
                     </div><!-- end form group --> 
                 </div><!-- end column -->
@@ -95,7 +102,11 @@
     		      <button class="btn btn-success btn-sm" ng-click="saveLease()"
                     ng-disabled="leaseForm.leaseTenant.$error.required || leaseForm.leaseProperty.$error.required
                         || leaseForm.leaseStartDate.$error.required || leaseForm.leaseType.$error.required
+<<<<<<< HEAD
                         || leaseForm.leaseRent.$error.required || leaseForm.leaseRent.$error.number">
+=======
+                        || leaseForm.leaseRent.$error.required">
+>>>>>>> 82fd0c76c4b43da588853083fbc85e7780ab4f29
                     <i class="fa fa-save"></i> Save
         	       </button>
                 </div><!-- end column -->
