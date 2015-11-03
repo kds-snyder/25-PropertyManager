@@ -53,24 +53,45 @@
                 </div><!-- end column -->
             </div><!-- end row -->
 
-            <div class="form-group">
-                <label class="control-label" for="leaseRent">Rent</label>
-                <div class="input-group">
-                    <span class="input-group-addon">$</span>
-                    <input type="text" class="form-control" id="leaseRent" name="leaseRent"
-                        placeholder="Rent" ng-model="lease.Rent" required>
-                    <div role="alert" 
-                            ng-show="leaseForm.$dirty && leaseForm.leaseRent.$error.required">
-                            <span class="error">Rent cannot be blank</span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label" for="leaseType">Rental Period</label>
+                        <select class="form-control" id="leaseType" name="leaseType"
+                                ng-model="lease.LeaseType" convert-to-number required>
+                                <option value="0">Daily</option>
+                                <option value="1">Weekly</option>
+                                <option value="2">Monthly</option>
+                                <option value="3">Yearly</option>
+                        </select>
+                        <div role="alert" 
+                            ng-show="leaseForm.$dirty && leaseForm.leaseType.$error.required">
+                            <span class="error">A rental period must be selected</span>
                         </div><!-- end alert -->
-                </div><!-- End input-group-->            
-            </div><!-- end form group -->    
+                    </div><!-- end form group -->
+                </div><!-- end column -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label" for="leaseRent">Rent</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" class="form-control" id="leaseRent" name="leaseRent"
+                                placeholder="Rent" ng-model="lease.Rent" required>
+                            <div role="alert" 
+                                ng-show="leaseForm.$dirty && leaseForm.leaseRent.$error.required">
+                                <span class="error">Rent cannot be blank</span>
+                            </div><!-- end alert -->
+                        </div><!-- End input-group-->            
+                    </div><!-- end form group --> 
+                </div><!-- end column -->
+            </div><!-- end row -->   
 
             <div class="row">
     	       <div class="col-sm-8">
     		      <button class="btn btn-success btn-sm" ng-click="saveLease()"
                     ng-disabled="leaseForm.leaseTenant.$error.required || leaseForm.leaseProperty.$error.required
-                        || leaseForm.leaseStartDate.$error.required || leaseForm.leaseRent.$error.required">
+                        || leaseForm.leaseStartDate.$error.required || leaseForm.leaseType.$error.required
+                        || leaseForm.leaseRent.$error.required">
                     <i class="fa fa-save"></i> Save
         	       </button>
                 </div><!-- end column -->

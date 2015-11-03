@@ -22,7 +22,7 @@ angular.module('app').controller('LeasesDetailController', function($scope, $sta
             $state.go('leases.list');
         };
 
-        $scope.lease.LeaseType = 2;
+        //$scope.lease.LeaseType = 2;
         if ($scope.lease.LeaseId) {
             $scope.lease.$update(successCallback);
         }

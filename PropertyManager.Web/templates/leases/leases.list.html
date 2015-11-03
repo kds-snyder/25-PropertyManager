@@ -14,11 +14,12 @@
 		<tr>			
 			<th>Tenant Name</th>
 			<th>Property Name</th>
-			<th>Property Address</th>
-			<th>Property City</th>
-			<th>Property State</th>
+			<th>Address</th>
+			<th>City</th>
+			<th>State</th>
 			<th>Start Date</th>
 			<th>End Date</th>
+			<th>Rental Period</th>
 			<th>Rent</th>
 			<th>Actions</th>	
 		</tr>
@@ -32,6 +33,7 @@
 			<td>{{lease.Property.State}}</td>
 			<td>{{lease.StartDate | date: 'mediumDate'}}</td>
 			<td>{{lease.EndDate | date: 'mediumDate'}}</td>
+			<td>{{lease.RentalPeriod}}</td>
 			<td>{{lease.Rent | currency }}</td>
 			<td>
 				<a class="btn btn-info btn-xs" ui-sref="leases.detail({ id: lease.LeaseId })">

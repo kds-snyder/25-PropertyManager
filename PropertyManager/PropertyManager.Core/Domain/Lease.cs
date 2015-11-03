@@ -27,6 +27,26 @@ namespace PropertyManager.Core.Domain
 
         public virtual Tenant Tenant { get; set; }
 
+        public string RentalPeriod
+        {
+            get
+            {
+                switch (LeaseType)
+                {
+                    case Constants.RentPeriod.Daily:
+                        return "Daily";
+                    case Constants.RentPeriod.Weekly:
+                        return "Weekly";
+                    case Constants.RentPeriod.Monthly:
+                        return "Monthly";
+                    case Constants.RentPeriod.Yearly:
+                        return "Yearly";
+                    default:
+                        return "Undefined";                       
+                }
+            }
+        }
+
         public void Update(LeaseModel modelLease)
         {
             // If adding new lease, set created date
