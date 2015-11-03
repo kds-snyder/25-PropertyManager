@@ -26,6 +26,8 @@ namespace PropertyManager.Core.Models
 
         public PropertyModel Property { get; set; }
         public TenantModel Tenant { get; set; }
-       
+
+        public string RentalPeriod { get; set; }
+
     }
 }
