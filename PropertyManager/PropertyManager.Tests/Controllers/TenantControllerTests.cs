@@ -158,7 +158,27 @@ namespace PropertyManager.Tests.Controllers
             CreatedAtRouteNegotiatedContentResult<TenantModel> contentResult =
                 (CreatedAtRouteNegotiatedContentResult<TenantModel>)result;
 
-            int tenantIdToDelete = contentResult.Content.TenantId;           
+            int tenantIdToDelete = contentResult.Content.TenantId;
+
+            // Add a lease corresponding to the tenant
+            int createdLeaseId;
+            using (var leaseController = new LeasesController())
+            {
+                var lease = new LeaseModel
+                {
+                    CreatedDate = new DateTime(2014, 9, 30),
+                    PropertyId = 1,
+                    TenantId = tenantIdToDelete,
+                    StartDate = new DateTime(2015, 1, 30),
+                    Rent = 800,
+                    LeaseType = Constants.RentPeriod.Monthly
+                };
+                IHttpActionResult leaseResult = leaseController.PostLease(lease);
+                CreatedAtRouteNegotiatedContentResult<LeaseModel> leaseContentResult =
+                    (CreatedAtRouteNegotiatedContentResult<LeaseModel>)leaseResult;
+
+                createdLeaseId = leaseContentResult.Content.LeaseId;
+            }
 
             //Act: Call DeleteTenant
             result = tenantController.DeleteTenant(tenantIdToDelete);
@@ -170,7 +190,14 @@ namespace PropertyManager.Tests.Controllers
 
             result = tenantController.GetTenant(tenantIdToDelete);
             Assert.IsInstanceOfType(result, typeof(NotFoundResult));
-           
+
+            // Verify that the lease created above was deleted
+            using (var leaseController = new LeasesController())
+            {
+                IHttpActionResult leaseResult = leaseController.GetLease(createdLeaseId);
+                Assert.IsInstanceOfType(leaseResult, typeof(NotFoundResult));
+            }
+
         }
 
     }

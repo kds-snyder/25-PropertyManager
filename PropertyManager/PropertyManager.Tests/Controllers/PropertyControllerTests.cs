@@ -145,8 +145,7 @@ namespace PropertyManager.Tests
             //Arrange:                       
             // Instantiate PropertiesController so its methods can be called
             // Create a new property to be deleted, and get its property ID
-
-            #region Create Property
+           
             var propertyController = new PropertiesController();
 
             var property = new PropertyModel
@@ -160,30 +159,27 @@ namespace PropertyManager.Tests
             CreatedAtRouteNegotiatedContentResult<PropertyModel> contentResult =
                 (CreatedAtRouteNegotiatedContentResult<PropertyModel>)propertyResult;
 
-            #endregion
-
-            #region Create Lease
             int propertyIdToDelete = contentResult.Content.PropertyId;
-           
+
             // Add a lease corresponding to the property
-            var leaseController = new LeasesController();
-            var lease = new LeaseModel
+            int createdLeaseId;
+            using (var leaseController = new LeasesController())
             {
-                CreatedDate = new DateTime(2014, 9, 30),
-                PropertyId = propertyIdToDelete,
-                TenantId = 1,
-                StartDate = new DateTime(2015, 1, 30),
-                Rent = 800,
-                LeaseType=Constants.RentPeriod.Monthly
-            };
-            IHttpActionResult leaseResult = leaseController.PostLease(lease);
-            CreatedAtRouteNegotiatedContentResult<LeaseModel> leaseContentResult =
-                (CreatedAtRouteNegotiatedContentResult<LeaseModel>)leaseResult;
+                var lease = new LeaseModel
+                {
+                    CreatedDate = new DateTime(2014, 9, 30),
+                    PropertyId = propertyIdToDelete,
+                    TenantId = 1,
+                    StartDate = new DateTime(2015, 1, 30),
+                    Rent = 800,
+                    LeaseType = Constants.RentPeriod.Monthly
+                };
+                IHttpActionResult leaseResult = leaseController.PostLease(lease);
+                CreatedAtRouteNegotiatedContentResult<LeaseModel> leaseContentResult =
+                    (CreatedAtRouteNegotiatedContentResult<LeaseModel>)leaseResult;
 
-            #endregion
-
-            #region Delete Property
-            int createdLeaseId = leaseContentResult.Content.LeaseId;
+                createdLeaseId = leaseContentResult.Content.LeaseId;
+            }           
 
             //Act: Call DeleteProperty
             propertyResult = propertyController.DeleteProperty(propertyIdToDelete);
@@ -197,9 +193,12 @@ namespace PropertyManager.Tests
             Assert.IsInstanceOfType(propertyResult, typeof(NotFoundResult));
 
             // Verify that the lease created above was deleted
-            leaseResult = leaseController.GetLease(createdLeaseId);
-            Assert.IsInstanceOfType(leaseResult, typeof(NotFoundResult));
-            #endregion
+            using (var leaseController = new LeasesController())
+            {
+                IHttpActionResult leaseResult = leaseController.GetLease(createdLeaseId);
+                Assert.IsInstanceOfType(leaseResult, typeof(NotFoundResult));
+            }
+
         }
     }
 }
