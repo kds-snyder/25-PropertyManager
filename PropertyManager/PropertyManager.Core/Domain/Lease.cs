@@ -29,8 +29,13 @@ namespace PropertyManager.Core.Domain
 
         public void Update(LeaseModel modelLease)
         {
-            // Copy values from input object to Lease lease
-            CreatedDate = modelLease.CreatedDate;
+            // If adding new lease, set created date
+            if (modelLease.LeaseId == 0)
+            {
+                CreatedDate = DateTime.Now;
+            }
+
+            // Copy values from input object to Lease lease           
             PropertyId = modelLease.PropertyId;
             TenantId = modelLease.TenantId;
             StartDate = modelLease.StartDate;

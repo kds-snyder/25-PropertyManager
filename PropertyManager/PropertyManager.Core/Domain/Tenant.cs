@@ -18,6 +18,14 @@ namespace PropertyManager.Core.Domain
 
         public virtual ICollection<Lease> Leases { get; set; }
 
+        public string FullName
+        {
+            get
+            {
+                return string.Format("{0} {1}", FirstName, LastName);
+            }
+        }
+
         public void Update(TenantModel modelTenant)
         {
             // Copy values from input object to Tenant tenant

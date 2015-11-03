@@ -133,7 +133,7 @@ namespace PropertyManager.Controllers
 
             try
             {
-                /*
+                
                 // Remove the leases corresponding to the tenant
                 var leases = db.Leases.Where(l => l.TenantId == tenant.TenantId);
                 if (leases != null)
@@ -142,11 +142,10 @@ namespace PropertyManager.Controllers
                     //db.SaveChanges();
                     foreach (var lease in leases)
                     {
-                        db.Leases.Remove(lease);
-                        db.SaveChanges();
+                        db.Leases.Remove(lease);                       
                     }
+                    db.SaveChanges();
                 }
-                */
 
                 // Remove the tenant
                 db.Tenants.Remove(tenant);

@@ -1,4 +1,4 @@
-angular.module('app').controller('LeasesListController', function($scope, Lease) {
+angular.module('app').controller('LeasesListController', function($scope, Lease, Property, Tenant) {
 
  	$scope.leases = Lease.query();
 

@@ -1,5 +1,8 @@
-angular.module('app').controller('LeasesDetailController', function($scope, $stateParams, Lease, $state) {
+angular.module('app').controller('LeasesDetailController', function($scope, $stateParams, Lease, Property, Tenant, $state) {
 
+    $scope.tenants = Tenant.query();
+    $scope.properties = Property.query();
+    
   	// If an ID was passed to state, then a lease is being edited: get the lease to update
 	//  otherwise a lease is being added: create a new lease
 	if ($stateParams.id) {
@@ -14,16 +17,18 @@ angular.module('app').controller('LeasesDetailController', function($scope, $sta
     //  otherwise a lease is being added: save the lease
     // After updating or saving, change state to leases.list
     $scope.saveLease = function () {
+
+        var successCallback = function() {
+            $state.go('leases.list');
+        };
+
         $scope.lease.LeaseType = 2;
         if ($scope.lease.LeaseId) {
-            $scope.lease.$update(function () {
-                $state.go('leases.list');
-            });
-        } else {
-            $scope.lease.$save(function () {
-                $state.go('leases.list');
-            });
+            $scope.lease.$update(successCallback);
         }
-    }
+        else {
+            $scope.lease.$save(successCallback);
+        }       
+    };
 
 });

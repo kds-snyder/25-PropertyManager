@@ -14,16 +14,18 @@ angular.module('app').controller('PropertiesDetailController', function($scope, 
     //  otherwise a property is being added: save the property
     // After updating or saving, change state to properties.list
     $scope.saveProperty = function () {
+
+        var successCallback = function() {
+            $state.go('properties.list');
+        };
+
         if ($scope.property.PropertyId) {
-            $scope.property.$update(function () {
-                $state.go('properties.list');
-            });
-        } else {
-            $scope.property.$save(function () {
-                $state.go('properties.list');
-            });
+            $scope.property.$update(successCallback);
+        } 
+        else {
+            $scope.property.$save(successCallback);
         }
-    }
+    };
   
 
 });

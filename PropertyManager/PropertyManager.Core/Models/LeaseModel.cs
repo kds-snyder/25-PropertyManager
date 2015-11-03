@@ -23,5 +23,9 @@ namespace PropertyManager.Core.Models
         public Decimal Rent { get; set; }      
 
         public Constants.RentPeriod LeaseType { get; set; }
+
+        public PropertyModel Property { get; set; }
+        public TenantModel Tenant { get; set; }
+       
     }
 }
