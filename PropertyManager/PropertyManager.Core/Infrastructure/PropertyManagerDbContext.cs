@@ -6,10 +6,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace PropertyManager.Core.Infrastructure
 {
-    public class PropertyManagerDbContext : DbContext
+    public class PropertyManagerDbContext : IdentityDbContext
     {
         public PropertyManagerDbContext() : base("PropertyManager")
         {
@@ -38,6 +39,8 @@ namespace PropertyManager.Core.Infrastructure
             modelBuilder.Entity<Lease>().HasKey(l => l.LeaseId);
 
             modelBuilder.Entity<Image>().HasKey(i => i.ImageId);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
