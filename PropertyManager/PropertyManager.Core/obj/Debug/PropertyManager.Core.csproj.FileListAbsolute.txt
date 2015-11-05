@@ -35,3 +35,8 @@ C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\Microso
 C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\Newtonsoft.Json.xml
+C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\System.Net.Http.Formatting.dll
+C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\System.Web.Cors.dll
+C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\System.Web.Http.dll
+C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\System.Net.Http.Formatting.xml
+C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\System.Web.Http.xml

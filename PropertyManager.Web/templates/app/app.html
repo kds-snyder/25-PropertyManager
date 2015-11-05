@@ -1,0 +1,24 @@
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">        
+      <a class="navbar-brand" href="#">Property Manager</a>
+    </div>   
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a ui-sref="properties.list"><i class="fa fa-home"></i>Properties</a></li>
+        <li>
+          <a ui-sref="tenants.list"><i class="fa fa-users"></i>Tenants</a></li>
+        <li>
+          <a ui-sref="leases.list"><i class="fa fa-key"></i>Leases</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
+
+  <div class="container">
+    <div ui-view>
+
+    </div>
+  </div><!-- end container -->

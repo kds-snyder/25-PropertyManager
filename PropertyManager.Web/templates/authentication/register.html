@@ -1,0 +1,19 @@
+<div class="container">
+	<form class="form-login" role="form">
+    	<h2 class="form-login-heading">Please register as a user</h2>
+
+    	<label for="inputUsername" class="sr-only">Username</label>    	
+    	<input type="text" id="inputUsername" class="form-control" 
+    			placeholder="User name" ng-model="registration.userName" required autofocus>
+
+    	<label for="inputPassword" class="sr-only">Password</label>
+    	<input type="password" id="inputPassword" class="form-control" 
+    			placeholder="Password" ng-model="registration.password" required>
+
+    	<label for="inputConfirmPassword" class="sr-only">Re-enter Password</label>
+    	<input type="password" id="inputConfirmPassword" class="form-control" 
+    			placeholder="Re-enter Password" ng-model="registration.confirmPassword" required>
+    	
+    	<button class="btn btn-lg btn-info btn-block" type="submit" ng-click="register()">Submit</button       
+	</form>
+</div>

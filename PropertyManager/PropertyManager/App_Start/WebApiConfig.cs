@@ -21,7 +21,7 @@ namespace PropertyManager
                 methods: "*"
             );
             config.EnableCors(cors);
-            */
+            */           
 
             // Web API routes
             config.MapHttpAttributeRoutes();
