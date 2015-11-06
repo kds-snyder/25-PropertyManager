@@ -1,13 +1,12 @@
-<div class="container">
-	<h4 class="clearfix"><i class="fa fa-key"></i> All Leases
-		<button class="btn btn-success btn-sm pull-right" ui-sref="leases.detail">
-			<i class="fa fa-plus"></i>Add Lease
-		</button>
-	</h4>		
-    
-    <div class="alert alert-info" ng-hide="leases.length">
-            There are no leases - please add one
-    </div>		
+<h4 class="clearfix"><i class="fa fa-key"></i> All Leases
+	<button class="btn btn-success btn-sm pull-right" ui-sref="app.leases.detail">
+		<i class="fa fa-plus"></i>Add Lease
+	</button>
+</h4>		
+
+<div class="alert alert-info" ng-hide="leases.length">
+		There are no leases - please add one
+</div>		
 
 <table class="table table-bordered table-condensed table-responsive" ng-show="leases.length">
 	<thead>
@@ -36,7 +35,7 @@
 			<td>{{lease.RentalPeriod}}</td>
 			<td>{{lease.Rent | currency }}</td>
 			<td>
-				<a class="btn btn-info btn-xs" ui-sref="leases.detail({ id: lease.LeaseId })">
+				<a class="btn btn-info btn-xs" ui-sref="app.leases.detail({ id: lease.LeaseId })">
 					<i class="fa fa-edit fa-fw"></i>
 				</a>		
 				<a class="btn btn-danger btn-xs" ng-click="deleteLease(lease)">
@@ -46,4 +45,3 @@
 		</tr>
 	</tbody>
 </table>
-</div><!-- end container-->

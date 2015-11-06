@@ -1,6 +1,5 @@
-<div class="container">
-    <h4>{{property.PropertyId ? 'Edit' : 'Add'}} Property</h4>
-    <div class="well">
+<h4>{{property.PropertyId ? 'Edit' : 'Add'}} Property</h4>
+<div class="well">
         <!-- Angular form for validation (block any default browser validation) -->
         <form name="propertyForm" novalidate>
             <div class="form-group">
@@ -70,11 +69,10 @@
         	       </button>
                 </div><!-- end column -->
                 <div class="col-sm-4 col-md-4 col-lg-4">
-                    <button class="btn btn-danger btn-sm pull-right" ui-sref="properties.list">
+                    <button class="btn btn-danger btn-sm pull-right" ui-sref="app.properties.list">
                      <i class="fa fa-remove fa-fw"></i> Cancel        	
         	       </button>
                 </div><!-- end column -->
             </div><!-- end row -->
         </form><!-- end form -->
     </div><!-- end well -->
-</div> <!-- end container -->

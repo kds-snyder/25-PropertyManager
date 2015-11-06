@@ -5,22 +5,29 @@ angular.module('app').controller('LoginController', function ($scope, $location,
         password: ""
     };
  
-    $scope.message = "";
+    //$scope.message = "";
  
     $scope.login = function () {
- 
-        authService.login($scope.loginData).then(function (response) {
- 
-            $state.go('app.properties.list');
- 
-        },
-         function (err) {
 
-             //$scope.message = err.error_description;
-             if (err) {
-                alert(err.error_description);
-             }
-         });
+        if($scope.loginForm.$invalid) {
+            toastr.warning('Please verify that you have filled in the fields correctly');
+            return;
+        }
+ 
+        authService.login($scope.loginData).then(
+            function (response) {
+ 
+                $state.go('app.properties.list');
+ 
+            },
+            function (err) {
+
+                //$scope.message = err.error_description;
+                if (err) {
+                   toastr.error(err.error_description);
+                }
+            }
+        );
     };
  
 });

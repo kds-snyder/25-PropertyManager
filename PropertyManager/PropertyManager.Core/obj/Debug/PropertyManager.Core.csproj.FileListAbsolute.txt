@@ -15,7 +15,6 @@ C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\EntityF
 C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\EntityFramework.SqlServer.dll
 C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\EntityFramework.xml
 C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\EntityFramework.SqlServer.xml
-C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\obj\Debug\PropertyManager.Core.csprojResolveAssemblyReference.cache
 C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\obj\Debug\PropertyManager.Core.dll
 C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\obj\Debug\PropertyManager.Core.pdb
 C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll

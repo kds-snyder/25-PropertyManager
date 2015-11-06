@@ -1,19 +1,39 @@
 <div class="container">
-	<form class="form-login" role="form">
-    	<h2 class="form-login-heading">Please register as a user</h2>
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+          <!-- Registration form: prevent HTML5 validation -->
+           <form class="form-signin" role="form" name="registrationForm" novalidate>
+               <h4 class="form-signin-heading">Please register as a new user</h4>
 
-    	<label for="inputUsername" class="sr-only">Username</label>    	
-    	<input type="text" id="inputUsername" class="form-control" 
-    			placeholder="User name" ng-model="registration.userName" required autofocus>
+               <div class="form-group" 
+                  ng-class="{'has-error': registrationForm.username.$invalid && registrationForm.$submitted }">
+                 <label for="inputUsername" class="sr-only">User Name</label>    	
+                 <input type="text" id="inputUsername" class="form-control" name="username"
+                    placeholder="User name" ng-model="registration.userName" required autofocus>
+                  <span class="help-block" ng-show="registrationForm.username.$invalid && registrationForm.$submitted"> This is a required field</span>
+               </div><!-- end form-group -->
 
-    	<label for="inputPassword" class="sr-only">Password</label>
-    	<input type="password" id="inputPassword" class="form-control" 
-    			placeholder="Password" ng-model="registration.password" required>
+               <div class="form-group" 
+                  ng-class="{'has-error': registrationForm.password.$invalid && registrationForm.$submitted }">
+                  <label for="inputPassword" class="sr-only">Password</label>
+                  <input type="password" id="inputPassword" class="form-control" name="password"
+                    placeholder="Password" ng-model="registration.password" required>
+                  <span class="help-block" ng-show="registrationForm.password.$invalid && registrationForm.$submitted"> This is a required field</span>
+               </div><!-- end form-group -->
 
-    	<label for="inputConfirmPassword" class="sr-only">Re-enter Password</label>
-    	<input type="password" id="inputConfirmPassword" class="form-control" 
-    			placeholder="Re-enter Password" ng-model="registration.confirmPassword" required>
-    	
-    	<button class="btn btn-lg btn-info btn-block" type="submit" ng-click="register()">Submit</button       
-	</form>
-</div>
+               <div class="form-group" 
+                  ng-class="{'has-error': registrationForm.confirmPassword.$invalid && registrationForm.$submitted }">
+                  <label for="inputConfirmPassword" class="sr-only">Re-enter password</label>
+                  <input type="password" id="inputConfirmPassword" class="form-control" name="confirmPassword"
+                    placeholder="Re-enter password" ng-model="registration.confirmPassword" required>
+                  <span class="help-block" 
+                      ng-show="registrationForm.confirmPassword.$invalid && registrationForm.$submitted"> 
+                      This is a required field
+                  </span>
+               </div><!-- end form-group -->
+
+               <button class="btn btn-med btn-info btn-block" type="submit" ng-click="register()">Submit</button>       
+           </form>
+           </div><!-- end column -->
+       </div><!-- end row -->
+</div><!-- end container -->

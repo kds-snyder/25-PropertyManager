@@ -16,7 +16,7 @@ angular.module('app').controller('PropertiesDetailController', function($scope, 
     $scope.saveProperty = function () {
 
         var successCallback = function() {
-            $state.go('properties.list');
+            $state.go('app.properties.list');
         };
 
         if ($scope.property.PropertyId) {

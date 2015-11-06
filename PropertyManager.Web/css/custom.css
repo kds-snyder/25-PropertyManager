@@ -11,6 +11,10 @@ html, body {
 	color: Red;
 }
 
+.navbar-username-text {
+	color: White !important;
+}
+
 th {
     background-color:  #CDE4AB;    
 } 

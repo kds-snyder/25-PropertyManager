@@ -32,14 +32,14 @@ angular.module('app', ['ui.router', 'ngResource', 'LocalStorageModule'])
 			.state('app.leases', { abstract: true, url: '/leases', 
 					template: '<ui-view/>', authenticate: true})						
 				.state('app.leases.list', { url: '/list', 
-						templateUrl: '/templates/leases/leases.list.html',
+						templateUrl: '/templates/app/leases/leases.list.html',
 						controller: 'LeasesListController', authenticate: true})
 				.state('app.leases.detail', { url: '/detail/:id', 
 						templateUrl: '/templates/app/leases/leases.detail.html',
 						controller: 'LeasesDetailController', authenticate: true});
 });
 
-angular.module('app').value('apiUrl', 'http://localhost:50672/');
+angular.module('app').value('apiUrl', 'http://localhost:5000/');
 
 angular.module('app').run(function ($rootScope, authService, $state) {
     authService.fillAuthData();

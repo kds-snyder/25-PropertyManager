@@ -19,7 +19,7 @@ angular.module('app').controller('LeasesDetailController', function($scope, $sta
     $scope.saveLease = function () {
 
         var successCallback = function() {
-            $state.go('leases.list');
+            $state.go('app.leases.list');
         };
 
         //$scope.lease.LeaseType = 2;

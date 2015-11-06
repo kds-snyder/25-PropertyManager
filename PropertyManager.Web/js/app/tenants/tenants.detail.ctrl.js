@@ -16,7 +16,7 @@ angular.module('app').controller('TenantsDetailController', function($scope, $st
     $scope.saveTenant = function () {
 
         var successCallback = function() {
-            $state.go('tenants.list');
+            $state.go('app.tenants.list');
         };
 
         if ($scope.tenant.TenantId) {
