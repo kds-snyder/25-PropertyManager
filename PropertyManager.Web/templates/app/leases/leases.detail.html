@@ -1,47 +1,51 @@
 <div class="container">
     <h4>{{lease.LeaseId ? 'Edit' : 'Add'}} Lease</h4>    
     <div class="well">
-        <!-- Angular form for validation (block any default browser validation) -->
+        <!-- Lease form (block any default browser validation) -->
         <form name="leaseForm" novalidate>
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="form-group">
+                    <div class="form-group"
+                        ng-class="{'has-error': leaseForm.leaseProperty.$invalid && leaseForm.$submitted }">
                         <label class="control-label" for="leaseProperty">Property Name</label>
                         <select class="form-control" id="leaseProperty" name="leaseProperty"
                             ng-options="property.PropertyId as property.Name for property in properties" 
                             ng-model="lease.PropertyId" required>
-                        </select>
-                        <div role="alert" 
-                            ng-show="leaseForm.$dirty && leaseForm.leaseProperty.$error.required">
-                            <span class="error">A property must be selected for the lease</span>
-                        </div><!-- end alert -->
+                        </select>                        
+                        <span class="help-block" 
+                            ng-show="leaseForm.leaseProperty.$invalid && leaseForm.$submitted"> 
+                            A property must be selected for the lease
+                        </span>  
                     </div><!-- end form group -->
                 </div><!-- end column -->
+
                 <div class="col-sm-6">
-                    <div class="form-group">
+                    <div class="form-group"
+                        ng-class="{'has-error': leaseForm.leaseTenant.$invalid && leaseForm.$submitted }">
                         <label class="control-label" for="leaseTenant">Tenant Name</label>
                         <select class="form-control" id="leaseTenant" name="leaseTenant"
                             ng-options="tenant.TenantId as tenant.FullName for tenant in tenants" 
                             ng-model="lease.TenantId" required>
                         </select>
-                        <div role="alert" 
-                            ng-show="leaseForm.$dirty && leaseForm.leaseTenant.$error.required">
-                            <span class="error">A tenant must be selected for the lease</span>
-                        </div><!-- end alert -->
+                        <span class="help-block" 
+                            ng-show="leaseForm.leaseTenant.$invalid && leaseForm.$submitted"> 
+                            A tenant must be selected for the lease
+                        </span>  
                     </div><!-- end form group -->
                 </div><!-- end column -->
             </div><!-- end row -->
 
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group"
+                        ng-class="{'has-error': leaseForm.leaseStartDate.$invalid && leaseForm.$submitted }">
                         <label class="control-label" for="leaseStartDate">Lease Start Date</label>
                         <input type="text" class="form-control" id="leaseStartDate" name="leaseStartDate"
                             placeholder="Lease Start Date" ng-model="lease.StartDate" required>
-                        <div role="alert" 
-                            ng-show="leaseForm.$dirty && leaseForm.leaseStartDate.$error.required">
-                            <span class="error">Start date cannot be blank</span>
-                        </div><!-- end alert -->
+                        <span class="help-block" 
+                            ng-show="leaseForm.leaseStartDate.$invalid && leaseForm.$submitted"> 
+                            This is a required field
+                        </span>  
                     </div><!-- end form group -->
                 </div><!-- end column -->
                 <div class="col-md-6">
@@ -55,7 +59,8 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group"
+                        ng-class="{'has-error': leaseForm.leaseType.$invalid && leaseForm.$submitted }">
                         <label class="control-label" for="leaseType">Rental Period</label>
                         <select class="form-control" id="leaseType" name="leaseType"
                                 ng-model="lease.LeaseType" convert-to-number required>
@@ -64,27 +69,24 @@
                                 <option value="2">Monthly</option>
                                 <option value="3">Yearly</option>
                         </select>
-                        <div role="alert" 
-                            ng-show="leaseForm.$dirty && leaseForm.leaseType.$error.required">
-                            <span class="error">A rental period must be selected</span>
-                        </div><!-- end alert -->
+                        <span class="help-block" 
+                            ng-show="leaseForm.leaseType.$invalid && leaseForm.$submitted"> 
+                            A rental period must be selected for the lease
+                        </span>  
                     </div><!-- end form group -->
                 </div><!-- end column -->
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group"
+                        ng-class="{'has-error': leaseForm.leaseRent.$invalid && leaseForm.$submitted }">
                         <label class="control-label" for="leaseRent">Rent</label>
                         <div class="input-group">
                             <span class="input-group-addon">$</span>
-                            <input type="number" class="form-control" id="leaseRent" name="leaseRent"
+                            <input type="text" class="form-control" id="leaseRent" name="leaseRent"
                                 placeholder="Rent" ng-model="lease.Rent" required>
-                            <div role="alert" 
-                                ng-show="leaseForm.$dirty && leaseForm.leaseRent.$error.required">
-                                <span class="error">Rent cannot be blank</span>
-                            </div><!-- end alert -->
-                            <div role="alert" 
-                                ng-show="leaseForm.leaseRent.$dirty && leaseForm.leaseRent.$error.number">
-                                <span class="error">Rent must be a number</span>
-                            </div><!-- end alert -->
+                            <span class="help-block" 
+                            ng-show="leaseForm.leaseRent.$invalid && leaseForm.$submitted"> 
+                            This is a required field
+                        </span>  
                         </div><!-- End input-group-->            
                     </div><!-- end form group --> 
                 </div><!-- end column -->
@@ -92,10 +94,7 @@
 
             <div class="row">
     	       <div class="col-sm-8">
-    		      <button class="btn btn-success btn-sm" ng-click="saveLease()"
-                    ng-disabled="leaseForm.leaseTenant.$error.required || leaseForm.leaseProperty.$error.required
-                        || leaseForm.leaseStartDate.$error.required || leaseForm.leaseType.$error.required
-                        || leaseForm.leaseRent.$error.required || leaseForm.leaseRent.$error.number">
+    		      <button class="btn btn-success btn-sm" type="submit" ng-click="saveLease()">
                     <i class="fa fa-save"></i> Save
         	       </button>
                 </div><!-- end column -->

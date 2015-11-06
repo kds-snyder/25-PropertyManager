@@ -15,6 +15,7 @@ angular.module('app').controller('RegisterController',
             toastr.warning('Please verify that you have filled in the fields correctly');
             return;
         }
+        
         authService.saveRegistration($scope.registration).then(function (response) {
  
             $scope.savedSuccessfully = true;

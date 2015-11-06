@@ -1,78 +1,81 @@
 <h4>{{property.PropertyId ? 'Edit' : 'Add'}} Property</h4>
 <div class="well">
-        <!-- Angular form for validation (block any default browser validation) -->
-        <form name="propertyForm" novalidate>
-            <div class="form-group">
-                <label class="control-label" for="propertyName">Property Name</label>
-                <input type="text" class="form-control" id="propertyName" name="propertyName"
-                    placeholder="Property Name" ng-model="property.Name" required>
-                <div role="alert" 
-                    ng-show="propertyForm.$dirty && propertyForm.propertyName.$error.required">
-                    <span class="error">Property name cannot be blank</span>
-                </div><!-- end alert -->
-            </div><!-- end form group -->
+    <!-- Property form (block any default browser validation) -->
+    <form name="propertyForm" role="form" novalidate>            
 
-            <div class="form-group">
-                <label class="control-label" for="propertyAddress1">Address (1)</label>
-                <input type="text" class="form-control" id="propertyAddress1" name="propertyAddress1"
-                    placeholder="Address (1)" ng-model="property.Address1" required>
-                <div role="alert" 
-                    ng-show="propertyForm.$dirty && propertyForm.propertyAddress1.$error.required">
-                    <span class="error">Address (1) cannot be blank</span>
-                </div><!-- end alert -->
-            </div><!-- end form group -->
+        <div class="form-group" 
+            ng-class="{'has-error': propertyForm.propertyName.$invalid && propertyForm.$submitted }">
+            <label class="control-label" for="propertyName">Property Name</label>
+            <input type="text" class="form-control" id="propertyName" name="propertyName"
+                placeholder="Property Name" ng-model="property.Name" required autofocus>
+            <span class="help-block" ng-show="propertyForm.propertyName.$invalid && propertyForm.$submitted"> 
+                This is a required field
+            </span>                
+        </div><!-- end form group -->
 
-            <div class="form-group">
-                <label class="control-label" for="propertyAddress2">Address (2)</label>
-                <input type="text" class="form-control" id="propertyAddress2" 
-                    placeholder="Address (2)" ng-model="property.Address2">
-            </div><!-- end form group -->
+        <div class="form-group"
+            ng-class="{'has-error': propertyForm.propertyAddress1.$invalid && propertyForm.$submitted }">
+            <label class="control-label" for="propertyAddress1">Address (1)</label>
+            <input type="text" class="form-control" id="propertyAddress1" name="propertyAddress1"
+                 placeholder="Address (1)" ng-model="property.Address1" required>
+            <span class="help-block" ng-show="propertyForm.propertyAddress1.$invalid && propertyForm.$submitted"> 
+                This is a required field
+            </span>                
+        </div><!-- end form group -->
 
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label class="control-label" for="propertyCity">City</label>
-                        <input type="text" class="form-control" id="propertyCity" name="propertyCity"
-                            placeholder="City" ng-model="property.City" required>
-                        <div role="alert" 
-                            ng-show="propertyForm.$dirty && propertyForm.propertyCity.$error.required">
-                            <span class="error">City cannot be blank</span>
-                        </div><!-- end alert -->
-                    </div><!-- end form group -->
-                </div><!-- end column -->
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label class="control-label" for="propertyState">State</label>
-                        <input type="text" class="form-control" id="propertyState" name="propertyState"
-                            placeholder="State" ng-model="property.State" required>
-                         <div role="alert" 
-                            ng-show="propertyForm.$dirty && propertyForm.propertyState.$error.required">
-                            <span class="error">State cannot be blank</span>
-                        </div><!-- end alert -->   
-                    </div><!-- end form group -->
-                </div><!-- end column -->
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label class="control-label" for="propertyZipcode">Zipcode</label>
-                        <input type="text" class="form-control" id="propertyZipcode" 
-                            placeholder="Zipcode" ng-model="property.Zipcode">
-                    </div><!-- end form group -->
-                </div><!-- end column -->
-            </div><!-- end row -->
-    
-            <div class="row">
-    	       <div class="col-sm-8">
-    		      <button class="btn btn-success btn-sm" ng-click="saveProperty()"
-                    ng-disabled="propertyForm.propertyName.$error.required || propertyForm.propertyAddress1.$error.required
-                     || propertyForm.propertyCity.$error.required || propertyForm.propertyState.$error.required">
+        <div class="form-group">
+            <label class="control-label" for="propertyAddress2">Address (2)</label>
+            <input type="text" class="form-control" id="propertyAddress2" 
+            placeholder="Address (2)" ng-model="property.Address2">
+        </div><!-- end form group -->
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group"
+                    ng-class="{'has-error': propertyForm.propertyCity.$invalid && propertyForm.$submitted }">
+                    <label class="control-label" for="propertyCity">City</label>
+                    <input type="text" class="form-control" id="propertyCity" name="propertyCity"
+                        placeholder="City" ng-model="property.City" required>
+                    <span class="help-block" 
+                        ng-show="propertyForm.propertyCity.$invalid && propertyForm.$submitted"> 
+                        This is a required field
+                    </span> 
+                </div><!-- end form group -->
+            </div><!-- end column -->
+
+            <div class="col-sm-4">
+                <div class="form-group"
+                    ng-class="{'has-error': propertyForm.propertyState.$invalid && propertyForm.$submitted }">
+                    <label class="control-label" for="propertyState">State</label>
+                    <input type="text" class="form-control" id="propertyState" name="propertyState"
+                        placeholder="State" ng-model="property.State" required>
+                    <span class="help-block" 
+                        ng-show="propertyForm.propertyState.$invalid && propertyForm.$submitted"> 
+                        This is a required field
+                    </span>   
+                </div><!-- end form group -->
+            </div><!-- end column -->
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label class="control-label" for="propertyZipcode">Zipcode</label>
+                    <input type="text" class="form-control" id="propertyZipcode" 
+                        placeholder="Zipcode" ng-model="property.Zipcode">
+                </div><!-- end form group -->
+            </div><!-- end column -->
+        </div><!-- end row -->
+
+        <div class="row">
+            <div class="col-sm-8">
+                <button class="btn btn-success btn-sm" type="submit" ng-click="saveProperty()">
                     <i class="fa fa-save"></i> Save
-        	       </button>
-                </div><!-- end column -->
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <button class="btn btn-danger btn-sm pull-right" ui-sref="app.properties.list">
-                     <i class="fa fa-remove fa-fw"></i> Cancel        	
-        	       </button>
-                </div><!-- end column -->
-            </div><!-- end row -->
-        </form><!-- end form -->
-    </div><!-- end well -->
+                </button>
+            </div><!-- end column -->
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <button class="btn btn-danger btn-sm pull-right" ui-sref="app.properties.list">
+                    <i class="fa fa-remove fa-fw"></i> Cancel          
+                </button>
+            </div><!-- end column -->
+        </div><!-- end row -->
+    </form><!-- end form -->
+</div><!-- end well -->

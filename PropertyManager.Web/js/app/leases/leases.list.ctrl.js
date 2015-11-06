@@ -7,6 +7,7 @@ angular.module('app').controller('LeasesListController', function($scope, Lease,
             Lease.delete({ id: lease.LeaseId }, function (data) {
                 var index = $scope.leases.indexOf(lease);
                 $scope.leases.splice(index, 1);
+                toastr.success('The lease was deleted successfully');
             });
         }
     }

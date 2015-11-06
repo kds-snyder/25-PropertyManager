@@ -15,14 +15,24 @@ angular.module('app').controller('PropertiesDetailController', function($scope, 
     // After updating or saving, change state to properties.list
     $scope.saveProperty = function () {
 
+        
+        if($scope.propertyForm.$invalid) {
+            toastr.warning('Please verify that you have filled in the fields correctly');
+            return;
+        }
+
+        var action = ""; // should be set to updated or saved, for success message
         var successCallback = function() {
+            toastr.success($scope.property.Name + ' was ' + action + ' successfully');
             $state.go('app.properties.list');
         };
 
         if ($scope.property.PropertyId) {
+            action = 'updated';
             $scope.property.$update(successCallback);
         } 
         else {
+            action = 'saved';
             $scope.property.$save(successCallback);
         }
     };

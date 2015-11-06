@@ -18,17 +18,28 @@ angular.module('app').controller('LeasesDetailController', function($scope, $sta
     // After updating or saving, change state to leases.list
     $scope.saveLease = function () {
 
+        if($scope.leaseForm.$invalid) {
+            toastr.warning('Please verify that you have filled in the fields correctly');
+            return;
+        }
+
         var successCallback = function() {
             $state.go('app.leases.list');
         };
 
-        //$scope.lease.LeaseType = 2;
         if ($scope.lease.LeaseId) {
-            $scope.lease.$update(successCallback);
+            $scope.lease.$update(function () {
+                toastr.success('The lease was updated successfully');
+                $state.go('app.leases.list');
+            });
         }
         else {
-            $scope.lease.$save(successCallback);
-        }       
+            $scope.lease.$save(function () {
+                toastr.success('The lease was saved successfully');
+                $state.go('app.leases.list');
+            });
+        } 
+        
     };
 
 });

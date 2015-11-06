@@ -1,70 +1,74 @@
     <h4>{{tenant.TenantId ? 'Edit' : 'Add'}} Tenant</h4>
     <div class="well">
-        <!-- Angular form for validation (block any default browser validation) -->
+        <!-- Tenant form (block any default browser validation) -->
         <form name="tenantForm" novalidate>
     	   <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <div class="form-group">
+
+                    <div class="form-group"
+                        ng-class="{'has-error': tenantForm.tenantFirstName.$invalid && tenantForm.$submitted }">
                         <label class="control-label" for="tenantFirstName">Tenant First Name</label>
                         <input type="text" class="form-control" id="tenantFirstName" name="tenantFirstName"
-                            placeholder="Tenant First Name" ng-model="tenant.FirstName" required>
-                        <div role="alert" 
-                            ng-show="tenantForm.$dirty && tenantForm.tenantFirstName.$error.required">
-                            <span class="error">Tenant first name cannot be blank</span>
-                        </div><!-- end alert -->
+                            placeholder="Tenant First Name" ng-model="tenant.FirstName" required autofocus>
+                        <span class="help-block" 
+                            ng-show="tenantForm.tenantFirstName.$invalid && tenantForm.$submitted"> 
+                            This is a required field
+                        </span>  
                     </div><!-- end form group -->
+
+
                 </div><!-- end column -->
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <div class="form-group">
+                    <div class="form-group"
+                        ng-class="{'has-error': tenantForm.tenantLastName.$invalid && tenantForm.$submitted }">
                         <label class="control-label" for="tenantLastName">Tenant Last Name</label>
                         <input type="text" class="form-control" id="tenantLastName" name="tenantLastName"
                             placeholder="Tenant Last Name" ng-model="tenant.LastName" required>
-                        <div role="alert" 
-                            ng-show="tenantForm.$dirty && tenantForm.tenantLastName.$error.required">
-                            <span class="error">Tenant last name cannot be blank</span>
-                        </div><!-- end alert -->
+                        <span class="help-block" 
+                            ng-show="tenantForm.tenantLastName.$invalid && tenantForm.$submitted"> 
+                            This is a required field
+                        </span>  
                     </div><!-- end form group -->
                 </div><!-- end column -->
             </div><!-- end row -->
 
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <div class="form-group">
+                    <div class="form-group"
+                        ng-class="{'has-error': tenantForm.tenantTelephone.$invalid && !tenant.EmailAddress 
+                                    && tenantForm.$submitted }">
                         <label class="control-label" for="tenantTelephone">Tenant Telephone</label>
                         <input type="text" class="form-control" id="tenantTelephone" name="tenantTelephone"
-                            placeholder="Telephone" ng-model="tenant.Telephone" ng-required="!tenant.EmailAddress">
-                        <div role="alert" 
-                            ng-show="tenantForm.$dirty && !tenant.Telephone && !tenant.EmailAddress">
-                            <span class="error">Tenant telephone or email address is required</span>
-                        </div><!-- end alert -->
+                            placeholder="Telephone" ng-model="tenant.Telephone" ng-required="!tenant.EmailAddress">        
+                        <span class="help-block" 
+                            ng-show="tenantForm.tenantTelephone.$invalid && !tenant.EmailAddress 
+                                    && tenantForm.$submitted "> 
+                            Tenant telephone or email address is required
+                        </span>  
                     </div><!-- end form group -->
                 </div><!-- end column -->
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                    <div class="form-group">
+                    <div class="form-group"
+                        ng-class="{'has-error': tenantForm.tenantEmailAddress.$invalid && 
+                                                    !tenant.Telephone && tenantForm.$submitted }">
                         <label class="control-label" for="tenantEmailAddress">Tenant Email Address</label>
                         <input type="email" class="form-control" id="tenantEmailAddress" name="tenantEmailAddress"
                             placeholder="Email Address" ng-model="tenant.EmailAddress" ng-required="!tenant.Telephone">
-                        <div role="alert"
-                            ng-show="tenantForm.$dirty && !tenant.Telephone && !tenant.EmailAddress">
-                            <span class="error" >
-                                Tenant telephone or email address is required
-                            </span>
-                        </div><!-- end alert -->
-                        <div role="alert"
-                            ng-show="tenantForm.tenantEmailAddress.$dirty && tenantForm.tenantEmailAddress.$error.email"
-                            <span class="error">
-                                Invalid email address
-                            </span>
-                        </div><!-- end alert -->
+                       <span class="help-block" 
+                            ng-show="tenantForm.tenantEmailAddress.$invalid && !tenant.Telephone && tenantForm.$submitted"> 
+                            Tenant telephone or email address is required
+                        </span> 
+                        <span class="help-block" 
+                            ng-show="tenantForm.tenantEmailAddress.$error.email && tenantForm.$submitted"> 
+                            Invalid email address
+                        </span>  
                     </div><!-- end form group --> 
                 </div><!-- end column -->
             </div><!-- end row -->     
     
     	   <div class="row">
                 <div class="col-sm-8 col-md-8 col-lg-8">
-                    <button class="btn btn-success btn-sm" ng-click="saveTenant()"
-                        ng-disabled="tenantForm.tenantFirstName.$error.required || tenantForm.tenantLastName.$error.required
-                        || (!tenant.EmailAddress && !tenant.Telephone) || tenantForm.tenantEmailAddress.$error.email">
+                    <button class="btn btn-success btn-sm" type="submit" ng-click="saveTenant()">
                         <i class="fa fa-save"></i> Save
                     </button>
                 </div><!-- end column -->

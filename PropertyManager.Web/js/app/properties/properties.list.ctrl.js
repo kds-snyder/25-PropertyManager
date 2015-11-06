@@ -7,6 +7,7 @@ angular.module('app').controller('PropertiesListController', function($scope, Pr
             Property.delete({ id: property.PropertyId }, function (data) {
                 var index = $scope.properties.indexOf(property);
                 $scope.properties.splice(index, 1);
+                toastr.success('The property was deleted successfully');
             });
         }
     }

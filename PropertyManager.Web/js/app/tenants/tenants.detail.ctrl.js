@@ -15,16 +15,26 @@ angular.module('app').controller('TenantsDetailController', function($scope, $st
     // After updating or saving, change state to tenants.list
     $scope.saveTenant = function () {
 
-        var successCallback = function() {
-            $state.go('app.tenants.list');
-        };
 
+        if($scope.tenantForm.$invalid) {
+            toastr.warning('Please verify that you have filled in the fields correctly');
+            return;
+        }
+        
         if ($scope.tenant.TenantId) {
-            $scope.tenant.$update(successCallback);
+            $scope.tenant.$update(function () {
+                toastr.success($scope.tenant.FullName + ' was updated successfully');
+                $state.go('app.tenants.list');
+            });
         } 
         else {
-            $scope.tenant.$save(successCallback);
+            $scope.tenant.$save(function () {
+                toastr.success($scope.tenant.FirstName + ' ' + $scope.tenant.LastName +
+                                                                ' was saved successfully');
+                $state.go('app.tenants.list');
+            });
         }
     };
+
 
 });
