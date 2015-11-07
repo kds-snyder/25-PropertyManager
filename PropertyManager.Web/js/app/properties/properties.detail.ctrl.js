@@ -20,20 +20,20 @@ angular.module('app').controller('PropertiesDetailController', function($scope, 
             toastr.warning('Please verify that you have filled in the fields correctly');
             return;
         }
-
-        var action = ""; // should be set to updated or saved, for success message
-        var successCallback = function() {
-            toastr.success($scope.property.Name + ' was ' + action + ' successfully');
-            $state.go('app.properties.list');
-        };
-
+       
         if ($scope.property.PropertyId) {
             action = 'updated';
-            $scope.property.$update(successCallback);
+            $scope.property.$update(function () {
+                toastr.success($scope.property.Name + ' was updated successfully');
+                $state.go('app.properties.list');
+            });
         } 
         else {
             action = 'saved';
-            $scope.property.$save(successCallback);
+            $scope.property.$save(function () {
+                toastr.success($scope.property.Name + ' was added successfully');
+                $state.go('app.properties.list');
+            });
         }
     };
   

@@ -15,7 +15,6 @@ angular.module('app').controller('TenantsDetailController', function($scope, $st
     // After updating or saving, change state to tenants.list
     $scope.saveTenant = function () {
 
-
         if($scope.tenantForm.$invalid) {
             toastr.warning('Please verify that you have filled in the fields correctly');
             return;
@@ -30,7 +29,7 @@ angular.module('app').controller('TenantsDetailController', function($scope, $st
         else {
             $scope.tenant.$save(function () {
                 toastr.success($scope.tenant.FirstName + ' ' + $scope.tenant.LastName +
-                                                                ' was saved successfully');
+                                                                ' was added successfully');
                 $state.go('app.tenants.list');
             });
         }

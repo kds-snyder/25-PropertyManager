@@ -35,7 +35,7 @@ angular.module('app').controller('LeasesDetailController', function($scope, $sta
         }
         else {
             $scope.lease.$save(function () {
-                toastr.success('The lease was saved successfully');
+                toastr.success('The lease was added successfully');
                 $state.go('app.leases.list');
             });
         } 
