@@ -39,3 +39,4 @@ C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\System.
 C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\System.Web.Http.dll
 C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\System.Net.Http.Formatting.xml
 C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\bin\Debug\System.Web.Http.xml
+C:\dev\25-PropertyManager\PropertyManager\PropertyManager.Core\obj\Debug\PropertyManager.Core.csprojResolveAssemblyReference.cache

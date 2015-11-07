@@ -6,14 +6,21 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li class="active">
-        <a ui-sref="app.properties.list"><i class="fa fa-home"></i> Properties</a></li>
+        <li class="active">
+            <a ui-sref="app.dashboard"><i class="fa fa-tachometer"></i> Dashboard</a>
+        </li>       
         <li>
-          <a ui-sref="app.tenants.list"><i class="fa fa-users"></i> Tenants</a></li>
+            <a ui-sref="app.properties.list"><i class="fa fa-home"></i> Properties</a>
+        </li>
         <li>
-           <a ui-sref="app.leases.list"><i class="fa fa-key"></i> Leases</a></li>
+            <a ui-sref="app.tenants.list"><i class="fa fa-users"></i> Tenants</a>
+        </li>
         <li>
-           <a href="#" ng-click="logout()"><i class="fa fa-sign-out"></i> Logout</a></li>
+           <a ui-sref="app.leases.list"><i class="fa fa-key"></i> Leases</a>
+        </li>
+        <li>
+           <a href="#" ng-click="logout()"><i class="fa fa-sign-out"></i> Logout</a>
+        </li>
     </ul>
     <p class="navbar-text pull-right navbar-username-text">Logged in as: {{user.userName}}</p> 
   </div><!-- /.navbar-collapse -->

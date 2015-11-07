@@ -1,0 +1,66 @@
+<h4><i class="fa fa-tachometer"></i> Dashboard</h4>
+
+<div class="row">
+    <!-- column for overview -->
+    <div class="col-sm-4">
+        <!-- table for overview -->
+        <table class="table table-bordered table-condensed table-responsive">
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        <i class="fa fa-tachometer"></i> Overview
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Number of Properties
+                        <span class="pull-right">{{dashboard.PropertyCount}}</span>                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>Number of Tenants
+                        <span class="pull-right">{{dashboard.TenantCount}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Number of Leases
+                        <span class="pull-right">{{dashboard.LeaseCount}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div><!-- End column for overview -->
+</div><!-- End row -->
+
+<div class="row">
+    <!-- column for expiring leases -->
+    <div class="col-sm-4">
+        <!-- table for expiring leases -->
+        <table class="table table-bordered table-condensed table-responsive" ng-show="dashboard.ExpiringLeases.length">
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        <i class="fa fa-key"></i> Leases Expiring in Next Six Months
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="lease in dashboard.ExpiringLeases">
+                    <td>
+                        <i class="fa fa-home"></i> {{lease.Property.Name}}
+                        <span class="pull-right">
+                            <i class="fa fa-users"></i> {{lease.Tenant.FullName}}
+                        </span>
+                        <div>
+                            Expires on {{lease.EndDate | date: 'mediumDate'}}
+                            <span class="pull-right">
+                                {{lease.Rent | currency }} ({{lease.RentalPeriod}})
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div><!-- End column for expiring leases -->
+</div><!-- End row -->

@@ -9,6 +9,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyManager.Tests", "Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyManager.Core", "PropertyManager.Core\PropertyManager.Core.csproj", "{6ED60D2C-7806-409F-A192-D1E8384C607D}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PropertyManager.Web", "..\PropertyManager.Web\", "{77AB3AA0-10B3-487B-B54C-3098F4481A20}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54221"
+		Debug.AspNetCompiler.PhysicalPath = "..\PropertyManager.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54221\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54221"
+		Release.AspNetCompiler.PhysicalPath = "..\PropertyManager.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54221\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54221"
+		SlnRelativePath = "..\PropertyManager.Web\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +48,10 @@ Global
 		{6ED60D2C-7806-409F-A192-D1E8384C607D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ED60D2C-7806-409F-A192-D1E8384C607D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ED60D2C-7806-409F-A192-D1E8384C607D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77AB3AA0-10B3-487B-B54C-3098F4481A20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77AB3AA0-10B3-487B-B54C-3098F4481A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77AB3AA0-10B3-487B-B54C-3098F4481A20}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{77AB3AA0-10B3-487B-B54C-3098F4481A20}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

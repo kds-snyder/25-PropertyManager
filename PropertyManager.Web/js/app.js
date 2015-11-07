@@ -12,7 +12,10 @@ angular.module('app', ['ui.router', 'ngResource', 'LocalStorageModule'])
 			controller: 'RegisterController'})
 
 		.state('app',{ url:'/app', templateUrl: '/templates/app/app.html',
-						controller: 'AppController'})			
+						controller: 'AppController'})
+			.state('app.dashboard', { url:'/dashboard',
+					templateUrl: '/templates/app/dashboard/dashboard.html',
+					controller: 'DashboardController', authenticate: true})
 			.state('app.properties', { abstract: true, url: '/properties', 
 					template: '<ui-view/>', authenticate: true})
 				.state('app.properties.list',{ url:'/list', 

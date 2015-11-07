@@ -15,6 +15,14 @@ html, body {
 	color: White !important;
 }
 
+.panel-body {
+background:#E4F0D2;
+}
+
+.panel-default>.panel-heading {
+  background: #CDE4AB;
+}
+
 th {
     background-color:  #CDE4AB;    
 } 

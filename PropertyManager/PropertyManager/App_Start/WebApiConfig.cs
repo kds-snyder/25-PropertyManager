@@ -6,6 +6,7 @@ using AutoMapper;
 using PropertyManager.Core.Domain;
 using PropertyManager.Core.Models;
 using System.Web.Http.Cors;
+using PropertyManager.Core.Infrastructure;
 
 namespace PropertyManager
 {
@@ -23,6 +24,9 @@ namespace PropertyManager
             );
             config.EnableCors(cors);
             */
+
+            // Add handler to deal with preflight requests
+            config.MessageHandlers.Add(new PreflightRequestsHandler()); 
 
             // Web API routes
             config.MapHttpAttributeRoutes();
