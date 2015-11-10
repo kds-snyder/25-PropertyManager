@@ -43,7 +43,11 @@ namespace PropertyManager.Controllers
         }
 
         // Calculate income from rents this month
+<<<<<<< HEAD
         private decimal monthlyRentIncome()
+=======
+        private decimal monthlyIncome()
+>>>>>>> d4b5d93b63c3a373073a5be8ed333adec11741ad
         {
             decimal sum = 0;
             int daysInThisMonth = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
