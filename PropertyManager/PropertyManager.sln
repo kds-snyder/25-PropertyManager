@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyManager", "PropertyManager\PropertyManager.csproj", "{5E937C42-7A2D-4A29-A9D7-56238A6B0FE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyManager.API", "PropertyManager\PropertyManager.API.csproj", "{5E937C42-7A2D-4A29-A9D7-56238A6B0FE6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyManager.Tests", "PropertyManager.Tests\PropertyManager.Tests.csproj", "{5AB94A41-0142-4778-9715-51BE73B86C58}"
 EndProject
