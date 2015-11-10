@@ -127,9 +127,9 @@
       <Project>{6ed60d2c-7806-409f-a192-d1e8384c607d}</Project>
       <Name>PropertyManager.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PropertyManager\PropertyManager.csproj">
+    <ProjectReference Include="..\PropertyManager\PropertyManager.API.csproj">
       <Project>{5e937c42-7a2d-4a29-a9d7-56238a6b0fe6}</Project>
-      <Name>PropertyManager</Name>
+      <Name>PropertyManager.API</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

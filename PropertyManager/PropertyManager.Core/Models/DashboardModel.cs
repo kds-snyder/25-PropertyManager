@@ -11,6 +11,7 @@ namespace PropertyManager.Core.Models
         public int LeaseCount { get; set; }
         public int PropertyCount { get; set; }
         public int TenantCount { get; set; }
+        public decimal TotalMonthlyIncome { get; set; }
 
         public IEnumerable<LeaseModel> ExpiringLeases { get; set; }
     }
