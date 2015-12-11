@@ -22,8 +22,7 @@ angular.module('app').controller('LoginController', function ($scope, $location,
             },
             function (err) {               
 
-                //$scope.message = err.error_description;
-                
+                //$scope.message = err.error_description;              
                 if (err) {
                    toastr.error(err.error_description);
                 }
